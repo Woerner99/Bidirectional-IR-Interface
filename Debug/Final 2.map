@@ -1,0 +1,344 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.1                     
+******************************************************************************
+>> Linked Fri Feb 19 19:26:33 2021
+
+OUTPUT FILE NAME:   <Final 2.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00002b75
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00002c6a  0003d396  R  X
+  SRAM                  20000000   00008000  000002ac  00007d54  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002c70   00002c70    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    0000299e   0000299e    r-x .text
+  00002c10    00002c10    00000060   00000060    r-- .cinit
+20000000    20000000    000002ae   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000076   00000000    rw- .bss
+  20000278    20000278    00000036   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    0000299e     
+                  0000026c    00000b9c     main.obj (.text)
+                  00000e08    00000960     eeprom.obj (.text)
+                  00001768    000007a0     IR_Transmitter.obj (.text)
+                  00001f08    000006b2     IR_Receiver.obj (.text)
+                  000025ba    00000002     --HOLE-- [fill = 0]
+                  000025bc    00000308     CommonTerminalnterface.obj (.text)
+                  000028c4    0000011c     uart0.obj (.text)
+                  000029e0    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00002a7c    00000068                                   : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00002ae4    0000004a     serial_s.obj (.text)
+                  00002b2e    00000002     --HOLE-- [fill = 0]
+                  00002b30    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00002b74    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00002ba8    00000024     wait.obj (.text)
+                  00002bcc    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00002be8    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00002bf6    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00002c02    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00002c06    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    00002c10    00000060     
+                  00002c10    00000036     (.cinit..data.load) [load image, compression = lzss]
+                  00002c46    00000002     --HOLE-- [fill = 0]
+                  00002c48    0000000c     (__TI_handler_table)
+                  00002c54    00000004     --HOLE-- [fill = 0]
+                  00002c58    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002c60    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    00000076     UNINITIALIZED
+                  20000200    00000064     (.common:output)
+                  20000264    00000008     (.common:address)
+                  2000026c    00000008     (.common:data)
+                  20000274    00000001     (.common:currentStatus)
+                  20000275    00000001     (.common:key)
+
+.data      0    20000278    00000036     UNINITIALIZED
+                  20000278    00000018     IR_Receiver.obj (.data:samples)
+                  20000290    00000015     main.obj (.data:buttons)
+                  200002a5    00000004     IR_Receiver.obj (.data)
+                  200002a9    00000004     main.obj (.data)
+                  200002ad    00000001     IR_Transmitter.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       main.obj                       2972    0         26     
+       eeprom.obj                     2400    0         1      
+       IR_Transmitter.obj             1952    0         101    
+       IR_Receiver.obj                1714    0         44     
+       CommonTerminalnterface.obj     776     0         0      
+       tm4c123gh6pm_startup_ccs.obj   12      620       0      
+       uart0.obj                      284     0         0      
+       serial_s.obj                   74      0         0      
+       wait.obj                       36      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         10220   620       172    
+                                                               
+    E:\Program Files (x86)\Texas Insturments\CCS1010\ccs\tools\compiler\ti-cgt-arm_20.2.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156     0         0      
+       copy_decompress_lzss.c.obj     104     0         0      
+       autoinit.c.obj                 68      0         0      
+       boot_cortex_m.c.obj            52      0         0      
+       copy_zero_init.c.obj           28      0         0      
+       copy_decompress_none.c.obj     14      0         0      
+       exit.c.obj                     4       0         0      
+       pre_init.c.obj                 4       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         430     0         0      
+                                                               
+       Stack:                         0       0         512    
+       Linker Generated:              0       90        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   10650   710       684    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002c60 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002c10, load size=00000036 bytes, run addr=20000278, run size=00000036 bytes, compression=lzss
+	.bss: load addr=00002c58, load size=00000008 bytes, run addr=20000200, run size=00000076 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002c48 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00002c07  C$$EXIT                       
+0000192d  IR_Interrupt                  
+00002bf7  ResetISR                      
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00002c60  __TI_CINIT_Base               
+00002c70  __TI_CINIT_Limit              
+00002c48  __TI_Handler_Table_Base       
+00002c54  __TI_Handler_Table_Limit      
+00002b31  __TI_auto_init_nobinit_nopinit
+00002a7d  __TI_decompress_lzss          
+00002be9  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00002bcd  __TI_zero_init_nomemset       
+000029e1  __aeabi_memcpy                
+000029e1  __aeabi_memcpy4               
+000029e1  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00002b75  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00002c03  _system_pre_init              
+00002c07  abort                         
+20000264  address                       
+200002a8  address_counter               
+200002ac  alert_bad                     
+200002ab  alert_good                    
+000022f9  binaryToInteger               
+ffffffff  binit                         
+20000290  buttons                       
+000002bd  clearScreen                   
+00001265  convert2binary                
+20000274  currentStatus                 
+2000026c  data                          
+200002a7  data_counter                  
+200002aa  entered                       
+00001441  eraseName                     
+000012c1  findIndex                     
+00000e77  flashEeprom                   
+00001c01  formatBits                    
+00000000  g_pfnVectors                  
+00002159  getButton                     
+00002809  getFieldInteger               
+00002799  getFieldString                
+00001685  getInfo                       
+00002b15  getcUart0                     
+000025f5  getsUart0                     
+200002a6  high_counter                  
+200002ad  i                             
+00001129  infoIndex                     
+00001403  infoName                      
+00000e09  initEeprom                    
+000025bd  initHw5                       
+00001f09  initHw6                       
+00001769  initHw7                       
+00001855  initIR_LED                    
+000017b1  initSpeaker                   
+000028c5  initUart0                     
+0000288d  isCommand                     
+00002985  kbhitUart0                    
+20000275  key                           
+00000e83  learnInstruction              
+00000f87  learnRule                     
+00001523  listCommands                  
+000002e7  main                          
+000029e1  memcpy                        
+00001fbf  onFallingEdge                 
+20000200  output                        
+00002655  parseFields                   
+00001d69  playBadTone                   
+000019fd  playComment                   
+00001d0f  playGoodTone                  
+00001dcd  playStartUpTone               
+00002aed  putcUart0                     
+00002b03  putsUart0                     
+00000e51  readEeprom                    
+20000278  samples                       
+00001b61  sendData                      
+00002959  setUart0BaudRate              
+000018f9  set_Timer                     
+0000026d  strCompare                    
+00001ea3  test_IR_LED                   
+00002001  timerISR                      
+200002a9  valid2                        
+00002ba9  waitMicrosecond               
+00000e1f  writeEeprom                   
+200002a5  x                             
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  strCompare                    
+000002bd  clearScreen                   
+000002e7  main                          
+00000e09  initEeprom                    
+00000e1f  writeEeprom                   
+00000e51  readEeprom                    
+00000e77  flashEeprom                   
+00000e83  learnInstruction              
+00000f87  learnRule                     
+00001129  infoIndex                     
+00001265  convert2binary                
+000012c1  findIndex                     
+00001403  infoName                      
+00001441  eraseName                     
+00001523  listCommands                  
+00001685  getInfo                       
+00001769  initHw7                       
+000017b1  initSpeaker                   
+00001855  initIR_LED                    
+000018f9  set_Timer                     
+0000192d  IR_Interrupt                  
+000019fd  playComment                   
+00001b61  sendData                      
+00001c01  formatBits                    
+00001d0f  playGoodTone                  
+00001d69  playBadTone                   
+00001dcd  playStartUpTone               
+00001ea3  test_IR_LED                   
+00001f09  initHw6                       
+00001fbf  onFallingEdge                 
+00002001  timerISR                      
+00002159  getButton                     
+000022f9  binaryToInteger               
+000025bd  initHw5                       
+000025f5  getsUart0                     
+00002655  parseFields                   
+00002799  getFieldString                
+00002809  getFieldInteger               
+0000288d  isCommand                     
+000028c5  initUart0                     
+00002959  setUart0BaudRate              
+00002985  kbhitUart0                    
+000029e1  __aeabi_memcpy                
+000029e1  __aeabi_memcpy4               
+000029e1  __aeabi_memcpy8               
+000029e1  memcpy                        
+00002a7d  __TI_decompress_lzss          
+00002aed  putcUart0                     
+00002b03  putsUart0                     
+00002b15  getcUart0                     
+00002b31  __TI_auto_init_nobinit_nopinit
+00002b75  _c_int00_noargs               
+00002ba9  waitMicrosecond               
+00002bcd  __TI_zero_init_nomemset       
+00002be9  __TI_decompress_none          
+00002bf7  ResetISR                      
+00002c03  _system_pre_init              
+00002c07  C$$EXIT                       
+00002c07  abort                         
+00002c48  __TI_Handler_Table_Base       
+00002c54  __TI_Handler_Table_Limit      
+00002c60  __TI_CINIT_Base               
+00002c70  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000200  output                        
+20000264  address                       
+2000026c  data                          
+20000274  currentStatus                 
+20000275  key                           
+20000278  samples                       
+20000290  buttons                       
+200002a5  x                             
+200002a6  high_counter                  
+200002a7  data_counter                  
+200002a8  address_counter               
+200002a9  valid2                        
+200002aa  entered                       
+200002ab  alert_good                    
+200002ac  alert_bad                     
+200002ad  i                             
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[95 symbols]
